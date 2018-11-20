@@ -94,7 +94,7 @@ namespace Xamarin.Forms.Platform.iOS
 			{
 				UpdateTitle();
 			}
-			else if (e.PropertyName == Shell.TabBarVisibleProperty.PropertyName)
+			else if (e.PropertyName == Shell.TabBarIsVisibleProperty.PropertyName)
 			{
 				UpdateTabBarVisible();
 			}
@@ -102,7 +102,7 @@ namespace Xamarin.Forms.Platform.iOS
 
 		protected virtual void UpdateTabBarVisible()
 		{
-			bool tabBarVisible = Shell.GetTabBarVisible(Page);
+			bool tabBarVisible = Shell.GetTabBarIsVisible(Page);
 			ViewController.HidesBottomBarWhenPushed = !tabBarVisible;
 		}
 

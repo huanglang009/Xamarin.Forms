@@ -105,6 +105,7 @@ using Xamarin.Forms.StyleSheets;
 [assembly: StyleProperty("-xf-thumb-color", typeof(Slider), nameof(Slider.ThumbColorProperty))]
 [assembly: StyleProperty("-xf-spacing", typeof(StackLayout), nameof(StackLayout.SpacingProperty))]
 [assembly: StyleProperty("-xf-orientation", typeof(StackLayout), nameof(StackLayout.OrientationProperty))]
+
 //shell
 [assembly: StyleProperty("-xf-flyout-background", typeof(Shell), nameof(Shell.FlyoutBackgroundColorProperty))]
 [assembly: StyleProperty("-xf-shell-background", typeof(Element), nameof(Shell.ShellBackgroundColorProperty), PropertyOwnerType = typeof(Shell))]

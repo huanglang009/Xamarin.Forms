@@ -347,7 +347,7 @@ namespace Xamarin.Forms.Platform.Android
 
 		private void OnDisplayedElementPropertyChanged(object sender, PropertyChangedEventArgs e)
 		{
-			if (e.PropertyName == Shell.TabBarVisibleProperty.PropertyName)
+			if (e.PropertyName == Shell.TabBarIsVisibleProperty.PropertyName)
 				UpdateTabBarVisibility();
 		}
 
@@ -376,7 +376,7 @@ namespace Xamarin.Forms.Platform.Android
 			if (DisplayedPage == null)
 				return;
 
-			bool visible = Shell.GetTabBarVisible(DisplayedPage);
+			bool visible = Shell.GetTabBarIsVisible(DisplayedPage);
 			using (var menu = _bottomView.Menu)
 			{
 				if (menu.Size() == 1)

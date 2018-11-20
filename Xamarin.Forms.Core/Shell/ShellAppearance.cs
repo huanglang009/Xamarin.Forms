@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace Xamarin.Forms
 {
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public class ShellAppearance : IShellAppearanceController
+	public class ShellAppearance : IShellAppearanceElement
 	{
 		static BindableProperty[] IngestArray = new[]
 		{
@@ -42,19 +42,19 @@ namespace Xamarin.Forms
 
 		public Color UnselectedColor => _colorArray[9].Value;
 
-		Color IShellAppearanceController.EffectiveTabBarBackgroundColor =>
+		Color IShellAppearanceElement.EffectiveTabBarBackgroundColor =>
 			!TabBarBackgroundColor.IsDefault ? TabBarBackgroundColor : BackgroundColor;
 
-		Color IShellAppearanceController.EffectiveTabBarDisabledColor =>
+		Color IShellAppearanceElement.EffectiveTabBarDisabledColor =>
 			!TabBarDisabledColor.IsDefault ? TabBarDisabledColor : DisabledColor;
 
-		Color IShellAppearanceController.EffectiveTabBarForegroundColor =>
+		Color IShellAppearanceElement.EffectiveTabBarForegroundColor =>
 			!TabBarForegroundColor.IsDefault ? TabBarForegroundColor : ForegroundColor;
 
-		Color IShellAppearanceController.EffectiveTabBarTitleColor =>
+		Color IShellAppearanceElement.EffectiveTabBarTitleColor =>
 			!TabBarTitleColor.IsDefault ? TabBarTitleColor : TitleColor;
 
-		Color IShellAppearanceController.EffectiveTabBarUnselectedColor =>
+		Color IShellAppearanceElement.EffectiveTabBarUnselectedColor =>
 			!TabBarUnselectedColor.IsDefault ? TabBarUnselectedColor : UnselectedColor;
 
 		internal ShellAppearance()

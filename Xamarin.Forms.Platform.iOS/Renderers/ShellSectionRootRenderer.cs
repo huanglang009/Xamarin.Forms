@@ -11,7 +11,7 @@ namespace Xamarin.Forms.Platform.iOS
 	{
 		#region IShellSectionRootRenderer
 
-		bool IShellSectionRootRenderer.ShowNavBar => Shell.GetNavBarVisible(((IShellContentController)ShellSection.CurrentItem).GetOrCreateContent());
+		bool IShellSectionRootRenderer.ShowNavBar => Shell.GetNavBarIsVisible(((IShellContentController)ShellSection.CurrentItem).GetOrCreateContent());
 
 		UIViewController IShellSectionRootRenderer.ViewController => this;
 

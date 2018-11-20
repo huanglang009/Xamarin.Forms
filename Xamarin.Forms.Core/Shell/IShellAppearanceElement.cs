@@ -1,6 +1,6 @@
 ﻿namespace Xamarin.Forms
 {
-	public interface IShellAppearanceController
+	public interface IShellAppearanceElement
 	{
 		Color EffectiveTabBarBackgroundColor { get; }
 		Color EffectiveTabBarDisabledColor { get; }

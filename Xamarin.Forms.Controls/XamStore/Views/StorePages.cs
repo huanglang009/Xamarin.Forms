@@ -84,19 +84,19 @@ namespace Xamarin.Forms.Controls.XamStore
 				1, 4);
 
 			grid.Children.Add(MakeButton("Hide Tabs",
-					() => Shell.SetTabBarVisible(this, false)),
+					() => Shell.SetTabBarIsVisible(this, false)),
 				2, 4);
 
 			grid.Children.Add(MakeButton("Show Tabs",
-					() => Shell.SetTabBarVisible(this, true)),
+					() => Shell.SetTabBarIsVisible(this, true)),
 				0, 5);
 
 			grid.Children.Add(MakeButton("Hide Nav",
-					() => Shell.SetNavBarVisible(this, false)),
+					() => Shell.SetNavBarIsVisible(this, false)),
 				1, 5);
 
 			grid.Children.Add(MakeButton("Show Nav",
-					() => Shell.SetNavBarVisible(this, true)),
+					() => Shell.SetNavBarIsVisible(this, true)),
 				2, 5);
 
 			grid.Children.Add(MakeButton("Hide Search",
@@ -204,8 +204,8 @@ namespace Xamarin.Forms.Controls.XamStore
 			grid.Children.Add(MakeButton("Push Special",
 					() => {
 					var page = (Page)Activator.CreateInstance(GetType());
-						Shell.SetNavBarVisible (page, _navBarVisibleSwitch.IsToggled);
-						Shell.SetTabBarVisible(page, _tabBarVisibleSwitch.IsToggled);
+						Shell.SetNavBarIsVisible (page, _navBarVisibleSwitch.IsToggled);
+						Shell.SetTabBarIsVisible(page, _tabBarVisibleSwitch.IsToggled);
 						Navigation.PushAsync(page);
 					}),
 				2, 14);

@@ -6,11 +6,14 @@ namespace Xamarin.Forms
 {
 	public class NavigableElement : Element, INavigationProxy
 	{
-		static readonly BindablePropertyKey NavigationPropertyKey = BindableProperty.CreateReadOnly("Navigation", typeof(INavigation), typeof(VisualElement), default(INavigation));
+		static readonly BindablePropertyKey NavigationPropertyKey =
+			BindableProperty.CreateReadOnly("Navigation", typeof(INavigation), typeof(VisualElement), default(INavigation));
+
 		public static readonly BindableProperty NavigationProperty = NavigationPropertyKey.BindableProperty;
 
-		public static readonly BindableProperty StyleProperty = BindableProperty.Create("Style", typeof(Style), typeof(VisualElement), default(Style),
-			propertyChanged: (bindable, oldvalue, newvalue) => ((NavigableElement)bindable)._mergedStyle.Style = (Style)newvalue);
+		public static readonly BindableProperty StyleProperty =
+			BindableProperty.Create("Style", typeof(Style), typeof(VisualElement), default(Style),
+				propertyChanged: (bindable, oldvalue, newvalue) => ((NavigableElement)bindable)._mergedStyle.Style = (Style)newvalue);
 
 		internal readonly MergedStyle _mergedStyle;
 
@@ -20,35 +23,30 @@ namespace Xamarin.Forms
 			_mergedStyle = new MergedStyle(GetType(), this);
 		}
 
-		public INavigation Navigation
-		{
+		public INavigation Navigation {
 			get { return (INavigation)GetValue(NavigationProperty); }
 			internal set { SetValue(NavigationPropertyKey, value); }
 		}
 
-		public Style Style
-		{
+		public Style Style {
 			get { return (Style)GetValue(StyleProperty); }
 			set { SetValue(StyleProperty, value); }
 		}
 
 		[TypeConverter(typeof(ListStringTypeConverter))]
-		public IList<string> StyleClass
-		{
+		public IList<string> StyleClass {
 			get { return @class; }
 			set { @class = value; }
 		}
 
 		[TypeConverter(typeof(ListStringTypeConverter))]
-		public IList<string> @class
-		{
+		public IList<string> @class {
 			get { return _mergedStyle.StyleClass; }
 			set { _mergedStyle.StyleClass = value; }
 		}
 
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public NavigationProxy NavigationProxy
-		{
+		public NavigationProxy NavigationProxy {
 			get { return Navigation as NavigationProxy; }
 		}
 
@@ -58,22 +56,18 @@ namespace Xamarin.Forms
 
 			Element parent = Parent;
 			INavigationProxy navProxy = null;
-			while (parent != null)
-			{
-				if (parent is INavigationProxy proxy)
-				{
+			while (parent != null) {
+				if (parent is INavigationProxy proxy) {
 					navProxy = proxy;
 					break;
 				}
 				parent = parent.RealParent;
 			}
 
-			if (navProxy != null)
-			{
+			if (navProxy != null) {
 				NavigationProxy.Inner = navProxy.NavigationProxy;
 			}
-			else
-			{
+			else {
 				NavigationProxy.Inner = null;
 			}
 		}

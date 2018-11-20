@@ -35,7 +35,7 @@ namespace Xamarin.Forms.Platform.Android
 
 		public virtual void SetAppearance(BottomNavigationView bottomView, ShellAppearance appearance)
 		{
-			IShellAppearanceController controller = appearance;
+			IShellAppearanceElement controller = appearance;
 			var background = controller.EffectiveTabBarBackgroundColor;
 			var foreground = controller.EffectiveTabBarForegroundColor;
 			var disabled = controller.EffectiveTabBarDisabledColor;
